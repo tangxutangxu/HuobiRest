@@ -1,0 +1,29 @@
+package tx.huobi.rest;
+
+import java.io.IOException;
+
+import org.apache.http.HttpException;
+
+import tx.huobi.rest.impl.MarketRestApi;
+
+public class Main {
+
+	public static void main(String[] args) {
+		IMarketRestApi marketRestApi = new MarketRestApi();
+		
+		try {
+			String ret = marketRestApi.kline("bccbtc", "1min", "10");
+			
+			System.out.println("");
+		} catch (HttpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	}
+
+}
