@@ -1,6 +1,7 @@
 package tx.huobi.rest.impl;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
@@ -100,6 +101,11 @@ public class V1RestApi implements IV1RestApi {
 		return httpUtil.requestHttpPost(V1_URL, url, signMap, paramMap);
 	}
 
+	public String place(String accountId, BigDecimal amount, BigDecimal price, String source, String symbol, String type)
+			throws HttpException, IOException {
+		return this.place(accountId, amount.toPlainString(), price.toPlainString(), source, symbol, type);
+	}
+	
 	@Override
 	public String submitcancel(String orderId) throws HttpException, IOException {
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();

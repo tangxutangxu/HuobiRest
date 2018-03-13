@@ -1,6 +1,7 @@
 package tx.huobi.rest;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -66,6 +67,8 @@ public interface IV1RestApi {
 	 * @throws IOException
 	 */
 	public String place(String accountId, String amount, String price, String source, String symbol, String type) throws HttpException, IOException;
+	
+	public String place(String accountId, BigDecimal amount, BigDecimal price, String source, String symbol, String type) throws HttpException, IOException;
 	
 	/**
 	 * 申请撤销一个订单请求
