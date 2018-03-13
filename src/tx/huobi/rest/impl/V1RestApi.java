@@ -20,9 +20,9 @@ import tx.huobi.tools.ParamUtils;
 
 public class V1RestApi implements IV1RestApi {
 
-	private static String V1_URL = "https://api.huobi.pro";
+	private static String V1_URL = "https://api.huobipro.com";
 
-	private static String SIGN_URL = "api.huobi.pro";
+	private static String SIGN_URL = "api.huobipro.com";
 
 	@Override
 	public String commonSymbols() throws HttpException, IOException {

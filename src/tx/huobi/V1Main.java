@@ -12,8 +12,8 @@ public class V1Main {
 			String ret = "";
 
 			// 查询系统支持的所有交易对及精度
-//			ret = v1RestApi.commonSymbols();
-//			System.out.println(ret);
+			ret = v1RestApi.commonSymbols();
+			System.out.println(ret);
 //			
 //			// 查询系统支持的所有币种
 //			ret = v1RestApi.commonCurrencys();
@@ -26,8 +26,8 @@ public class V1Main {
 //			System.out.println(new Date(longTime));
 //			
 //			// 查询当前用户的所有账户(即account-id)
-//			ret = v1RestApi.accounts();
-//			System.out.println(ret);
+			ret = v1RestApi.accounts();
+			System.out.println(ret);
 //			
 //			// 查询当前用户的所有账户(即account-id)
 //			ret = v1RestApi.accountsBalance("100512");
@@ -73,8 +73,8 @@ public class V1Main {
 //			System.out.println(ret);
 			
 			// 借贷账户详情
-			ret = v1RestApi.marginAccountsBalance(null);
-			System.out.println(ret);
+//			ret = v1RestApi.marginAccountsBalance(null);
+//			System.out.println(ret);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

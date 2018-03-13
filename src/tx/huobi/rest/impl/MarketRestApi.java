@@ -11,7 +11,7 @@ import tx.huobi.tools.HttpUtilManager;
 
 public class MarketRestApi implements IMarketRestApi {
 
-	private static String MARKET_URL = "https://api.huobi.pro";
+	private static String MARKET_URL = "https://api.huobipro.com";
 
 	@Override
 	public String kline(String symbol, String period, String size) throws HttpException, IOException {

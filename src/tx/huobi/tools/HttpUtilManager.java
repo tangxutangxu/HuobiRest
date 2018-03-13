@@ -8,13 +8,11 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
@@ -24,11 +22,12 @@ import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.HttpContext;
+import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSONObject;
 
 public class HttpUtilManager {
-
+	private Logger logger = Logger.getLogger(HttpUtilManager.class);
 	private static HttpUtilManager instance = new HttpUtilManager();
 	private static HttpClient client;
 	private static long startTime = System.currentTimeMillis();
@@ -92,10 +91,10 @@ public class HttpUtilManager {
 		} else {
 			url = url_prex + url;
 		}
-		System.out.println(url);
+		logger.debug(url);
 		HttpRequestBase method = this.httpGetMethod(url);
 		method.setConfig(requestConfig);
-		method.addHeader("Content-Type", "application/x-www-form-urlencoded");
+		method.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
 		HttpResponse response = client.execute(method);
 		HttpEntity entity = response.getEntity();
 		if (entity == null) {
@@ -124,8 +123,10 @@ public class HttpUtilManager {
 
 		IdleConnectionMonitor();
 		url = url_prex + url + "?" + ParamUtils.getGetParam(signMap);
+		logger.debug(url);
 		HttpPost method = this.httpPostMethod(url);
 		method.setConfig(requestConfig);
+		method.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
 		String json = this.convertMap2Json(params);
 		System.out.println(json);
 		StringEntity strEntity = new StringEntity(json,"utf-8");		
