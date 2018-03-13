@@ -128,7 +128,7 @@ public class HttpUtilManager {
 		method.setConfig(requestConfig);
 		method.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
 		String json = this.convertMap2Json(params);
-		System.out.println(json);
+		logger.debug(json);
 		StringEntity strEntity = new StringEntity(json,"utf-8");		
 		strEntity.setContentEncoding("UTF-8"); 
 		strEntity.setContentType("application/json");  
